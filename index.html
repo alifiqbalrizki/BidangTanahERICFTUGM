@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Peta Bidang Tanah DTNTF FT UGM</title>
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+   integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+   crossorigin=""/>
+
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+   integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+   crossorigin=""></script>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+    crossorigin="anonymous">
+ 
+ <style>
+    html, body, section
+    {
+        position: relative;
+        height: 100%;
+        background-color: #FFEBCD;
+    }
+
+    html
+    {
+        scroll-behavior: smooth;
+    }
+
+    #map {
+        height: calc(100vh - 60px);
+        }
+ </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style="margin-left: 10px;">Navbar</a>
+
+    </nav>
+
+        <div id="map"></div>
+        <script src="Arsitektur.js"></script>   
+        <script src="Bidang_Tetangga.js"></script> 
+
+     <script>
+        var map = L.map('map',{
+        center: [-7.7640390104198325, 110.37225952881488],
+        zoom: 50
+        });
+
+        var google = L.tileLayer('https://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', 
+        {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA,USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        })
+        .addTo(map);
+
+        var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>&copy; <a href="http://cartodb.com/attributions">CartoDB</a>',subdomains: 'abcd',
+        maxZoom: 50
+        });
+
+        var baseMaps = {
+        "Google Satellite Map": google,
+        "Open Street Map": osm
+        };
+        
+        var BGN14 = L.marker([-7.76398323228968,
+        110.372120998743426]).bindPopup('Kode Titik: ' + '<strong>' +'BGN14' + '</strong>'),
+        
+        BGN6 = L.marker([-7.764216640322652,
+        110.371843410938581]).bindPopup('Kode Titik: ' + '<strong>' +'BGN6' + '</strong>'),
+
+        BGN8 = L.marker([-7.768144452028461,
+        110.371587768386405]).bindPopup('Kode Titik: ' + '<strong>' +'BGN8' + '</strong>'),
+
+        BGN11 = L.marker([-7.763875179726043,
+        110.371700394799092]).bindPopup('Kode Titik: ' + '<strong>' +'BGN11' + '</strong>'),
+
+        BGN9 = L.marker([-7.764300366706648,
+        110.371393349150935]).bindPopup('Kode Titik: ' + '<strong>' +'BGN9' + '</strong>'),
+
+        BGN5 = L.marker([-7.76442989539738,
+        110.371812541929884]).bindPopup('Kode Titik: ' + '<strong>' +'BGN5' + '</strong>'),
+
+        BGN7 = L.marker([-7.764348020592338,
+        110.371541976370466]).bindPopup('Kode Titik: ' + '<strong>' +'BGN7' + '</strong>'),
+
+        BGN4 = L.marker([-7.763824113319115,
+        110.372168078600765]).bindPopup('Kode Titik: ' + '<strong>' +'BGN4' + '</strong>'),
+
+        BGN3 = L.marker([-7.763860141468932,
+        110.372343311302046]).bindPopup('Kode Titik: ' + '<strong>' +'BGN3' + '</strong>'),
+
+        BT4 = L.marker([-7.763614505424944,
+        110.371423008082871]).bindPopup('Kode Titik: ' + '<strong>' +'BT4' + '</strong>'),
+
+        BT3 = L.marker([-7.763797766480893,
+        110.371370373553845]).bindPopup('Kode Titik: ' + '<strong>' +'BT3' + '</strong>'),
+        
+        BGN10 = L.marker([-7.763850157731617,
+        110.371539703179323]).bindPopup('Kode Titik: ' + '<strong>' +'BGN10' + '</strong>'),
+        
+        BT2 = L.marker([-7.764349085165064,
+        110.371991644121465]).bindPopup('Kode Titik: ' + '<strong>' +'BT2' + '</strong>'),
+
+        BT1 = L.marker([-7.764384622115438,
+        110.372147107545715]).bindPopup('Kode Titik: ' + '<strong>' +'BT1' + '</strong>'),
+
+        C = L.marker([-7.764089181884582,
+        110.371845544689137]).bindPopup('Kode Titik: ' + '<strong>' +'C' + '</strong>');
+        
+        var PBT = L.layerGroup([BGN14, BGN6,BGN8,BGN11,BGN9,BGN5,BGN7,BGN4,BGN3,BT4,BT3,BGN10,BT2,BT1,C]);
+
+        var overlayMaps = {
+        "Titik Bidang Tanah": PBT
+        };
+        
+
+        L.control.layers(baseMaps, overlayMaps) .addTo(map);
+
+        
+        L.geoJSON(arsitektur,{
+                style: function(feature) {
+                switch (feature.properties.BIDANG) {
+                case 'Bidang 1': return {color: "#ff9900"};
+                case 'Bidang 2': return {color: "red"};
+                case 'Bidang 3': return {color: "blue"};
+                case 'Bidang 4': return {color: "green"};
+                case 'Bidang 5': return {color: "yellow"};
+                }
+                },
+                onEachFeature: function (feature, layer) {
+                layer.bindPopup(
+                'NIB: ' + '<strong>' + feature.properties.NIB +'</strong>' + '<br>' + 
+                'Pemilik:' + '<strong>' + feature.properties.PEMILIK +'</strong>' + '<br>' +
+                'Luas Bidang Tanah (m2):' + '<strong>' + feature.properties.LUAS +'</strong>'
+                );
+                }
+            })
+                .addTo(map);
+        
+        L.geoJSON(tetangga,{
+                style: function(feature) {
+                switch (feature.properties.Name) {
+                case 'Bidang Kelompok 9': return {color: "purple"};
+                case 'Bidang Kelompok 8': return {color: "purple"};
+                case 'Bidang Kelompok 1': return {color: "purple"};
+                }
+                },
+                onEachFeature: function (feature, layer) {
+                layer.bindPopup(
+                '<strong>' + feature.properties.Name +'</strong>'
+                );
+                }
+            })
+                .addTo(map);
+    </script>
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous">
+    </script>
+
+</body>
+</html>
