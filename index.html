@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Bidang Tanah ERIC FT UGM</title>
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+   integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+   crossorigin=""/>
+
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+   integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+   crossorigin=""></script>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+    crossorigin="anonymous">
+
+ <style>
+    html, body, section
+    {
+        position: relative;
+        height: 100%;
+        background-color: #ffffff;
+    }
+
+    html
+    {
+        scroll-behavior: smooth;
+    }
+
+    #map {
+        height: calc(100vh - 60px);
+        }
+ </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style="margin-left: 10px;">Navbar</a>
+
+    </nav>
+
+        <div id="map"></div>
+        <script src="ERICWGS.js"></script>   
+
+     <script>
+        var map = L.map('map',{
+        center: [-7.765937586810676, 110.37431798746672],
+        zoom: 50
+        });
+
+        var google = L.tileLayer('https://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', 
+        {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA,USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        })
+        .addTo(map);
+
+        var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>&copy; <a href="http://cartodb.com/attributions">CartoDB</a>',subdomains: 'abcd',
+        maxZoom: 50
+        });
+
+        var baseMaps = {
+        "Google Satellite Map": google,
+        "Open Street Map": osm
+        };
+
+        var TK0 = L.marker([-7.765963454,
+        110.374078269]).bindPopup('Kode Titik: ' + '<strong>' +'TK0' + '</strong>'),
+
+        TK1 = L.marker([-7.766038551,
+        110.374094072]).bindPopup('Kode Titik: ' + '<strong>' +'TK1' + '</strong>'),
+
+        TK2 = L.marker([-7.765992804,
+        110.374082672]).bindPopup('Kode Titik: ' + '<strong>' +'TK2' + '</strong>'),
+
+        TK3 = L.marker([-7.765604850,
+        110.374118305]).bindPopup('Kode Titik: ' + '<strong>' +'TK3' + '</strong>'),
+
+        TK4 = L.marker([-7.765641879,
+        110.374104167]).bindPopup('Kode Titik: ' + '<strong>' +'TK4' + '</strong>'),
+
+        TK5 = L.marker([-7.765708219,
+        110.374091295]).bindPopup('Kode Titik: ' + '<strong>' +'TK5' + '</strong>'),
+
+        TK6 = L.marker([-7.765772971,
+        110.374085518]).bindPopup('Kode Titik: ' + '<strong>' +'TK6' + '</strong>'),
+
+        TK7 = L.marker([-7.766007053,
+        110.374118257]).bindPopup('Kode Titik: ' + '<strong>' +'TK7' + '</strong>'),
+
+        TK8 = L.marker([-7.766000862,
+        110.374156673]).bindPopup('Kode Titik: ' + '<strong>' +'TK8' + '</strong>'),
+
+        TK9 = L.marker([-7.766011818,
+        110.374197410]).bindPopup('Kode Titik: ' + '<strong>' +'TK9' + '</strong>'),
+
+        TK10 = L.marker([-7.766002525,
+        110.374201144]).bindPopup('Kode Titik: ' + '<strong>' +'TK10' + '</strong>'),
+
+        TK11 = L.marker([-7.765945960,
+        110.374182705]).bindPopup('Kode Titik: ' + '<strong>' +'TK11' + '</strong>'),
+
+        TK12 = L.marker([-7.765877741,
+        110.374203796]).bindPopup('Kode Titik: ' + '<strong>' +'TK12' + '</strong>'),
+
+        TK13 = L.marker([-7.765788356,
+        110.374228424]).bindPopup('Kode Titik: ' + '<strong>' +'TK13' + '</strong>');
+
+        TK14 = L.marker([-7.765761652,
+        110.374264976]).bindPopup('Kode Titik: ' + '<strong>' +'TK14' + '</strong>');
+
+        TK15 = L.marker([-7.765659476,
+        110.374292396]).bindPopup('Kode Titik: ' + '<strong>' +'TK15' + '</strong>');
+
+        TK16 = L.marker([-7.765723581,
+        110.374273192]).bindPopup('Kode Titik: ' + '<strong>' +'TK16' + '</strong>');
+
+        TK17 = L.marker([-7.765698177,
+        110.374436520]).bindPopup('Kode Titik: ' + '<strong>' +'TK17' + '</strong>');
+
+        TK18 = L.marker([-7.765767138,
+        110.374425666]).bindPopup('Kode Titik: ' + '<strong>' +'TK18' + '</strong>');
+
+        TK19 = L.marker([-7.765824625,
+        110.374661419]).bindPopup('Kode Titik: ' + '<strong>' +'TK19' + '</strong>');
+
+        TK20 = L.marker([-7.765916462,
+        110.374955372]).bindPopup('Kode Titik: ' + '<strong>' +'TK20' + '</strong>');
+
+        TK21 = L.marker([-7.765946195,
+        110.374972712]).bindPopup('Kode Titik: ' + '<strong>' +'TK21' + '</strong>');
+
+        TK22 = L.marker([-7.765875479,
+        110.375074672]).bindPopup('Kode Titik: ' + '<strong>' +'TK22' + '</strong>');
+
+        TK23 = L.marker([-7.766154404,
+        110.375057970]).bindPopup('Kode Titik: ' + '<strong>' +'TK23' + '</strong>');
+
+        TK24 = L.marker([-7.766317599,
+        110.374937345]).bindPopup('Kode Titik: ' + '<strong>' +'TK24' + '</strong>');
+
+        TK25 = L.marker([-7.766371013,
+        110.374868339]).bindPopup('Kode Titik: ' + '<strong>' +'TK25' + '</strong>');
+
+        TK26 = L.marker([-7.765678827,
+        110.374364454]).bindPopup('Kode Titik: ' + '<strong>' +'TK26' + '</strong>');
+
+        TK27 = L.marker([-7.765745360,
+        110.374349434]).bindPopup('Kode Titik: ' + '<strong>' +'TK27' + '</strong>');
+
+        TK28 = L.marker([-7.765786828,
+        110.374755596]).bindPopup('Kode Titik: ' + '<strong>' +'TK28' + '</strong>');
+
+        var PBT = L.layerGroup([TK0,TK1,TK2,TK3,TK4,TK5,TK6,TK7,TK8,TK9,TK10,TK11,TK12,TK13,TK14,TK15,TK16,TK17,TK18,TK19,TK20,TK21,TK22,TK23,TK24,TK25,TK26,TK27,TK28]);
+
+        var overlayMaps = {
+        "Titik Bidang Tanah": PBT
+        };
+
+
+        L.control.layers(baseMaps,overlayMaps) .addTo(map);
+
+
+        L.geoJSON(eric,{
+                style: function(feature) {
+                switch (feature.properties.NIB) {
+                case '34.04.06.20.1.00006': return {color: "#0000ff"};
+                case '34.04.06.20.1.00007': return {color: "#ff7f00"};
+                case '34.04.06.20.1.00008': return {color: "#ffd700"};
+                case '34.04.06.20.1.00009': return {color: "#ff00ff"};
+                case '34.04.06.20.1.00010': return {color: "#00ff00"};
+                case '34.04.06.20.1.00011': return {color: "#ff0000"};
+                case '34.04.06.20.1.00012': return {color: "#00ffff"};
+                }
+                },
+                onEachFeature: function (feature, layer) {
+                layer.bindPopup(
+                'NIB: ' + '<strong>' + feature.properties.NIB +'</strong>' + '<br>' +
+                'Pemilik:' + '<strong>' + feature.properties.Pemilik +'</strong>' + '<br>' +  
+                'Luas Bidang (m2):' + '<strong>' + feature.properties.Luas +'</strong>' + '<br>' + 
+                'Informasi Bidang:' + '<strong>' + feature.properties.Informasi +'</strong>'
+                );
+                }
+            })
+                .addTo(map);
+
+    </script>
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous">
+    </script>
+
+</body>
+</html>
